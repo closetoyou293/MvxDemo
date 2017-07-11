@@ -1,5 +1,8 @@
 ﻿using Foundation;
 using UIKit;
+using Microsoft.Azure.Mobile;
+using Microsoft.Azure.Mobile.Analytics;
+using Microsoft.Azure.Mobile.Crashes;
 
 namespace MvxDemo.iOS
 {
@@ -20,6 +23,9 @@ namespace MvxDemo.iOS
         {
             // create a new window instance based on the screen size
             Window = new UIWindow(UIScreen.MainScreen.Bounds);
+
+            MobileCenter.Start("7ad947ce-8ae5-42a7-b655-80e84ff1003b",
+                typeof(Analytics), typeof(Crashes));
 
             // If you have defined a root view controller, set it here:
             // Window.RootViewController = myViewController;
