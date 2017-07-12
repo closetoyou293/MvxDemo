@@ -3,31 +3,58 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MvvmCross.Core.Navigation;
 using MvvmCross.Core.ViewModels;
 using MvxDemo.Core.ViewModels.Interfaces;
 
 namespace MvxDemo.Core.ViewModels.Base
 {
+    // Base class for each ViewModel without initial parameter
     public abstract class BaseApplicationMvxViewModel : MvxViewModel, IBaseApplicationMvxViewModel
     {
-        public Task Navigate<TViewModel>() where TViewModel : IMvxViewModel
+        protected readonly IMvxNavigationService _navigationService;
+
+        //Dependency injection to get navigation service
+        public BaseApplicationMvxViewModel(IMvxNavigationService navigationService)
         {
-            throw new NotImplementedException();
+            _navigationService = navigationService;
         }
 
-        public Task Navigate<TViewModel, TParameter>(TParameter param) where TViewModel : IMvxViewModel<TParameter> where TParameter : class
+        //Method to navigate to other ViewModel without passing any parameters:
+        public async Task Navigate<TViewModel>() where TViewModel : IMvxViewModel
         {
-            throw new NotImplementedException();
+            await _navigationService.Navigate<TViewModel>();
         }
 
+        //Method to navigate to other ViewModel with option to pass a parameter
+        public async Task Navigate<TViewModel, TParameter>(TParameter param) where TViewModel : IMvxViewModel<TParameter> where TParameter : class
+        {
+            await _navigationService.Navigate<TViewModel, TParameter>(param);
+        }
+
+        //Method responsible for handling Presentation Hints during navigation:
         public bool PresentationChanged(MvxPresentationHint presentationHint)
         {
-            throw new NotImplementedException();
+            return ChangePresentation(presentationHint);
         }
 
-        public Task Close()
+        //Method responsible for closing ViewModel
+        public async Task Close()
         {
-            throw new NotImplementedException();
+            await _navigationService.Close(this);
+        }
+    }
+
+    //Base class for each ViewModel which requires initial parameter (it extends BaseApplicationMvxViewModel class written above):
+    public abstract class  BaseApplicaionMvxViewModel<TInitParams> : BaseApplicationMvxViewModel, IMvxViewModel<TInitParams> where TInitParams : class
+    {
+        public BaseApplicaionMvxViewModel(IMvxNavigationService navigationService) : base(navigationService)
+        {
+        }
+
+        public virtual Task Initialize(TInitParams parameter)
+        {
+            return Task.FromResult(true);
         }
     }
 }
