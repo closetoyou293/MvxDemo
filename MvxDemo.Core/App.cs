@@ -5,8 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform;
+using MvxDemo.Core.Configuration.Startup;
 using MvxDemo.Core.Infrastructure.Services;
 using MvxDemo.Core.Infrastructure.Services.Interfaces;
+
 
 namespace MvxDemo.Core
 {
@@ -26,9 +28,11 @@ namespace MvxDemo.Core
 
             //We can change login sate to see control navigation flow:
             Mvx.Resolve<IAuthenticationService>().LoggedIn = false;
-            //REgister extended app startup in Iox container:
-            Mvx.ConstructAndRegisterSingleton<IMvxAppStart, MvxvAppExtendedStart>();
+
+            //Register extended app startup in Iox container:
+            Mvx.ConstructAndRegisterSingleton<IMvxAppStart, MvxAppExtendedStart>();
             var appStart = Mvx.Resolve<IMvxAppStart>();
+
             //register tje appstart object:
             RegisterAppStart(appStart);
         }

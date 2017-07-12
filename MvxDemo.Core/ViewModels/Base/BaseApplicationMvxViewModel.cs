@@ -46,12 +46,13 @@ namespace MvxDemo.Core.ViewModels.Base
     }
 
     //Base class for each ViewModel which requires initial parameter (it extends BaseApplicationMvxViewModel class written above):
-    public abstract class  BaseApplicaionMvxViewModel<TInitParams> : BaseApplicationMvxViewModel, IMvxViewModel<TInitParams> where TInitParams : class
+    public abstract class  BaseApplicationMvxViewModel<TInitParams> : BaseApplicationMvxViewModel, IMvxViewModel<TInitParams> where TInitParams : class
     {
-        public BaseApplicaionMvxViewModel(IMvxNavigationService navigationService) : base(navigationService)
+        public BaseApplicationMvxViewModel(IMvxNavigationService navigationService) : base(navigationService)
         {
         }
 
+        // Access Passed parameter
         public virtual Task Initialize(TInitParams parameter)
         {
             return Task.FromResult(true);

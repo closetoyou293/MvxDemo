@@ -84,8 +84,15 @@
     <CodesignKey>iPhone Distribution</CodesignKey>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Configuration\LinkerPleaseInclude.cs" />
+    <Compile Include="Configuration\Presenters\MvxIosAppPresenter.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Setup.cs" />
+    <Compile Include="ViewControllers\Base\ApplicationBaseMvxViewController.cs" />
+    <Compile Include="ViewControllers\DetailsViewController.cs" />
+    <Compile Include="ViewControllers\HomeViewController.cs" />
+    <Compile Include="ViewControllers\LoginViewController.cs" />
     <ImageAsset Include="Resources\Media.xcassets\splash_logo.imageset\bg_launch.png">
       <InProject>false</InProject>
     </ImageAsset>
@@ -125,22 +132,22 @@
       <HintPath>..\packages\Cirrious.FluentLayout.2.5.0\lib\Xamarin.iOS10\Cirrious.FluentLayouts.Touch.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.Mobile, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Azure.Mobile.0.13.1\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Azure.Mobile.0.14.0\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.Mobile.Analytics, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Azure.Mobile.Analytics.0.13.1\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.Analytics.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Azure.Mobile.Analytics.0.14.0\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.Mobile.Analytics.iOS.Bindings, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Azure.Mobile.Analytics.0.13.1\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.Analytics.iOS.Bindings.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Azure.Mobile.Analytics.0.14.0\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.Analytics.iOS.Bindings.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.Mobile.Crashes, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Azure.Mobile.Crashes.0.13.1\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.Crashes.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Azure.Mobile.Crashes.0.14.0\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.Crashes.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.Mobile.Crashes.iOS.Bindings, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Azure.Mobile.Crashes.0.13.1\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.Crashes.iOS.Bindings.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Azure.Mobile.Crashes.0.14.0\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.Crashes.iOS.Bindings.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.Mobile.iOS.Bindings, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Azure.Mobile.0.13.1\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.iOS.Bindings.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Azure.Mobile.0.14.0\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.iOS.Bindings.dll</HintPath>
     </Reference>
     <Reference Include="MvvmCross.Binding, Version=5.0.6.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmCross.Binding.5.0.6\lib\Xamarin.iOS10\MvvmCross.Binding.dll</HintPath>
@@ -168,6 +175,11 @@
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\MvxDemo.Core\MvxDemo.Core.csproj">
+      <Project>{4e739ee7-5d9d-4074-8ea2-9cb18d3aeec6}</Project>
+      <Name>MvxDemo.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

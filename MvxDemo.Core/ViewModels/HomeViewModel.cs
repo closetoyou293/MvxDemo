@@ -10,7 +10,7 @@ using MvxDemo.Core.ViewModels.Base;
 
 namespace MvxDemo.Core.ViewModels
 {
-    public class HomeViewModel : BaseApplicaionMvxViewModel<UserData>
+    public class HomeViewModel : BaseApplicationMvxViewModel<UserData>
     {
         private string _userName;
 

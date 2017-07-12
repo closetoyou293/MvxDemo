@@ -131,11 +131,17 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>5.2.3</Version>
+      <Version>5.3.3</Version>
     </PackageReference>
     <PackageReference Include="MvvmCross.Core">
       <Version>5.0.6</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MvxDemo.Core\MvxDemo.Core.csproj">
+      <Project>{4e739ee7-5d9d-4074-8ea2-9cb18d3aeec6}</Project>
+      <Name>MvxDemo.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
-    <Compile Include="Class1.cs" />
+    <Compile Include="Configuration\Startup\MvxAppExtendedStart.cs" />
     <Compile Include="Infrastructure\Services\AuthenticationService.cs" />
     <Compile Include="Infrastructure\Services\Interfaces\IAuthenticationService.cs" />
     <Compile Include="Models\UserData.cs" />
